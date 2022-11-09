@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes } from "react-router"
 
-import Begin from '../Pages/Begin/Begin'
-import SignUp from '../Pages/Customer/SignUp/SignUp'
-import LogIn from '../Pages/Customer/LogIn/LogIn'
-import LogInTechnical from '../Pages/Technical/LogInTechnical';
-import Incidences from '../Pages/Customer/Incidences/Incidences'
+import Begin from '../pages/begin/Begin'
+import SignUp from '../pages/customer/signUp/SignUp'
+import LogIn from '../pages/customer/logIn/LogIn'
+import LogInTechnical from '../pages/technical/LogInTechnical';
+import Incidences from '../pages/customer/incidences/Incidences'
 
 function App() {
 

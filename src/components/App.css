@@ -1,0 +1,132 @@
+.title {
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+.description {
+    text-align: center;
+}
+
+.line {
+    border-color: black;
+}
+
+.buttons {
+    text-align: center;
+    padding: 2vw;
+}
+
+.buttons-text {
+    font-size: 2.2vw;
+    background-color: #0d6079;
+    color: black;
+    padding: 0.8vw;
+    margin: 2.5vw;
+}
+
+.techn {
+    margin: 4vw;
+    font-size: 17px;
+    text-align: end;
+}
+.buttons-tech {
+    font-size: 15px;
+    background-color: #0d6079;
+    color: black;
+    padding: 0.5vw;
+}
+
+.formLogin {
+    text-align: center;
+    border: 0.2vw solid black;
+    padding: 2.5vw;
+    width: 20vw;
+    margin-left: 36.5vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 15px;
+}
+
+input {
+    width: 50%;
+    height: 13%;
+}
+
+.pages {
+    height: 100%;
+}
+
+.title2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#link {
+    margin-right: 2vw;
+    
+}
+
+.links {
+    border: 1px solid black;
+    padding: 1vw;
+    margin: 1vw;
+    text-align: start;
+    color: black;
+}
+
+.formSign {
+    text-align: center;
+    border: 0.3vw solid black;
+    padding: 2.5vw;
+    width: 50vw;
+    height: 35vw;
+    margin-left: 20vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 1vw;
+    font-weight: bold;
+}
+
+.left {
+    float: left;
+}
+
+#part1 {
+    width: 25vw;
+    margin-top: 2.5vw;
+    position: relative;
+    height: 10vw;
+}
+
+.right {
+    float: right;
+}
+
+#part2 {
+    margin-top: -20vw;
+    margin-left: 30vw;
+    position: absolute;
+    height: 10vw;
+}
+
+.line2 {
+    border-color: black;
+    height: 20vw;
+    width: 0.2vw;
+    border-width: 0;
+    color:#000;
+    background-color:#000;
+    margin: 0; 
+}
+
+.both {
+    float: both;
+}
+
+.buttons-form {
+    font-size: 1.5vw;
+    background-color: #0d6079;
+    color: black;
+    padding: 0.3vw;
+    margin-top: 1.5vw;
+}

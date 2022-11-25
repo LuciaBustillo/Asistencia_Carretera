@@ -1,0 +1,39 @@
+.begin {
+    background-color: gray;
+    padding: 2vw;
+}
+
+.description {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.buttons {
+    text-align: center;
+    padding: 2vw;
+}
+
+.buttons-text {
+    font-size: 2.2vw;
+    background-color: #0d6079;
+    color: black;
+    padding: 0.8vw;
+    margin: 2.5vw;
+}
+
+.techn {
+    margin: 4vw;
+    font-size: 17px;
+    text-align: end;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.buttons-tech {
+    font-size: 1.5vw;
+    background-color: #0d6079;
+    color: black;
+    padding: 0.5vw;
+}

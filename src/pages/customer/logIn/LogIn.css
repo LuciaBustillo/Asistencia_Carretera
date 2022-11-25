@@ -1,0 +1,15 @@
+.formLogin {
+    text-align: center;
+    border: 0.2vw solid black;
+    padding: 2.5vw;
+    width: 20vw;
+    margin-left: 34vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 1.5vw;
+    background-color: gray;
+}
+
+#links {
+    margin-right: 8vw;
+}

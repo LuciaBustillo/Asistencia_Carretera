@@ -1,0 +1,99 @@
+.formSign {
+    text-align: center;
+    border: 0.3vw solid black;
+    padding: 2.5vw;
+    width: 80vw;
+    height: 40vw;
+    margin-left: 5vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 1vw;
+    background-color: gray;
+}
+
+.line2 {
+    border-color: black;
+    height: 30vw;
+    width: 2px;
+    border-width: 0;
+    color:#000;
+    background-color:#000;
+    margin: 1vw; 
+}
+
+input {
+    width: 15vw;
+    height: 2vw;
+    font-size: 1vw;
+}
+
+.left {
+    float: left;
+}
+
+#part1 {
+    width: 25vw;
+    margin-top: 0vw;
+    margin-left: 0vw;
+    position: relative;
+    height: 10vw;
+}
+
+.right {
+    float: right;
+}
+
+#part2 {
+    margin-top: -31.5vw;
+    margin-left: 32.5vw;
+    position: absolute;
+    height: 10vw;
+}
+
+.line2-2 {
+    border-color: black;
+    height: 30vw;
+    width: 2px;
+    border-width: 0;
+    color:#000;
+    background-color:#000;
+    margin-left: 53vw;
+    margin-top: -31vw;
+}
+
+.part3 {
+    margin-left: 55vw;
+    margin-top: -30.5vw;
+    margin-bottom: 12vw;
+    height: 20vw;
+}
+
+.rrs {
+    border: 1px solid black;
+    width: 15vw;
+    margin-left: 5vw;
+    margin-bottom: 1vw;
+}
+.rrs__options {
+    width: 15vw;
+    top: 4.3vw !important;
+    padding: 0vw !important;
+}
+.rrs__button {
+    width: 15vw;
+    height: 2.5vw !important;
+    font-size: 1vw;
+}
+.rrs--has-changed .rrs__label {
+    color: #000 !important;
+    padding: 0vw;
+    white-space: none;
+}
+.line3 {
+    border-color: black;
+    margin-bottom: -0.5vw;
+}
+
+#link {
+    margin-right: 35vw;
+}

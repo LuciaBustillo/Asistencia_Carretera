@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(101, 147, 168);
-    border: 3px solid blue;
+    /*border: 3px solid rgb(44, 104, 151);*/
 }
 .title {
     margin-top: 0vw;
@@ -17,6 +16,7 @@ body {
     background-attachment: fixed;
     opacity: 0.7;
 }
+
 
 .card {
     height: 40vw;

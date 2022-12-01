@@ -134,6 +134,7 @@ export default function SignUp() {
             <hr className="line"></hr>
 
             <form className='formSign'>
+                <p className="content">
                 <label className='title2'>Registro:</label>
 
                 <hr className="line"></hr>
@@ -190,11 +191,7 @@ export default function SignUp() {
                 <div className="part3">
                     <h2><b>Información del vehículo:</b></h2>
                     <label>Marca:</label>
-                    
-                    <Select value={this.state.make} options={optionsMake} onChange={this.handleMake} />
-                    
                     <label>Modelo:</label>
-                    
 
                     <br></br><br></br>
                     <label>Color:</label>
@@ -203,7 +200,6 @@ export default function SignUp() {
                     <br></br><br></br>
 
                     <label>Nombre del seguro:</label>
-                    <Select options={optionsSeg} />
                 </div>
 
                 <hr className="line3"></hr>
@@ -212,8 +208,8 @@ export default function SignUp() {
                     <Link to="/"><button className="buttons-form" id="link">Back</button></Link>
                     <button type="submit" className="buttons-form" onClick={goesToLogin}>Submit</button>
                 </div>
+                </p>
             </form>
         </div>
     )
-    
 }

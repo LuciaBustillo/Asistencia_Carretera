@@ -8,61 +8,59 @@ import Credentials from './Credentials';
 import 'react-responsive-select/dist/react-responsive-select.css';
 
 export default function Incidences() {
+    const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${Credentials.mapsKey}`;
+
+    const [ selectedProblem, setSelectedProblem ] = useState('');
+    const [ selectedProblemVehicle, setSelectedProblemVehicle ] = useState('');
+    const [ selectInjuries, setSelectInjuries ] = useState('');
 
     const options = [
         { value: ''},
-        { value: 'vehicle', text: 'Issue Vehicle' },
-        { value: 'accident', text: 'Accident' }
+        { value: 'Problema con el vehículo', text: 'Problema con el vehículo' },
+        { value: 'Accidente', text: 'Accidente' }
     ]
 
     const optionsVehicle = [
         {},
-        { value: 'suspension', text: 'Suspension arm' },
-        { value: 'bar', text: 'Stabilizer bar' },
-        { value: 'airbags', text: 'Airbags' },
-        { value: 'bulbs', text: 'Light bulbs' },
-        { value: 'headlights', text: 'Misaligned headlights' },
-        { value: 'bodywork', text: 'Corrosion on bodywork' },
-        { value: 'bearings', text: 'Bearings' },
-        { value: 'catalytic', text: 'Catalytic converter' },
-        { value: 'control', text: 'Electronic engine control unit' },
-        { value: 'failures', text: 'Electronic failures' },
-        { value: 'system', text: 'Electrical system' },
-        { value: 'discs', text: 'Brake discs' },
-        { value: 'rust', text: 'Brakes with rust' },
-        { value: 'filter', text: 'Particulate filter' },
-        { value: 'braking', text: 'Irregular braking' },
-        { value: 'slack', text: 'Parking brake slack' },
-        { value: 'leaks', text: 'Leaks' },
-        { value: 'pads', text: 'Brake pads' },
-        { value: 'cover', text: 'Dust cover' },
-        { value: 'pipe', text: 'Exhaust pipe' },
-        { value: 'brackets', text: 'Brackets' },
-        { value: 'ball', text: 'Ball joints' }
+        { value: 'Alimentación', text: 'Alimentación' },
+        { value: 'Batería', text: 'Batería' },
+        { value: 'Combustible', text: 'Combustible' },
+        { value: 'Fallos eléctricos', text: 'Fallos eléctricos' },
+        { value: 'Fuga', text: 'Fuga' },
+        { value: 'Intento de robo en el vehículo', text: 'Intento de robo en el vehículo' },
+        { value: 'Motor', text: 'Motor' },
+        { value: 'Neumáticos', text: 'Neumáticos' },
+        { value: 'Pérdida de llaves', text: 'Pérdida de llaves' },
+        { value: 'Sistemas de transmisión', text: 'Sistemas de transmisión'},
     ]
 
-    const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${Credentials.mapsKey}`;
-
-    const[ selectedOption, setSelectedOption ] = useState('');
-    const [ selectInjuries, setSelectInjuries ] = useState('No');
-
     function handleSelected({value}) {
-        setSelectedOption(value)
+        setSelectedProblem(value)
     }
+    console.log(selectedProblem)
+
+    function handleProblemVehicle({value}) {
+        selectedProblem == 'Problema con el vehículo' ?
+        setSelectedProblemVehicle(value) : setSelectedProblemVehicle(null)
+
+    }
+    console.log(selectedProblemVehicle)
 
     const handleInjuries = e => {
-        setSelectInjuries(e.target.value)
+        selectedProblem == 'Accidente' ?
+        setSelectInjuries(e.target.value) : setSelectInjuries(null)
     }
+    console.log(selectInjuries)
 
         return (
-            <div>
+            <div className='content'>
                 <h1 className='title'>AsistRoad</h1> 
                 <hr className="line"></hr>
                 <form className='formIncidences'>
-                    <h2 className='title3'>Incidences:</h2>
+                    <h2 className='title3'>Incidencias:</h2>
                     <hr className='line'></hr>
                     <div className='part1'>
-                        <label>Problem type:</label>
+                        <label>Tipo de problema:</label>
                         <br></br>
                         <br></br>
                         <div className='selects'>
@@ -70,26 +68,26 @@ export default function Incidences() {
                         </div>
                         <div>
                             {
-                                (selectedOption == '') ?
+                                (selectedProblem == '') ?
                                     <p></p> :
-                                    (selectedOption == 'vehicle') ?
+                                    (selectedProblem == 'Problema con el vehículo') ?
                                     <div>
                                         <br></br>
-                                        <label>Type of vehicle problem:</label>
+                                        <label>Tipo de problema con el vehículo:</label>
                                         <br></br>
                                         <br></br>
-                                        <Select options={optionsVehicle} className='select' />
+                                        <div className='selects'><Select options={optionsVehicle} className='select' onChange={handleProblemVehicle} /></div>
                                         <br></br>
                                         <br></br>
                                     </div> 
                                 :
                                     <div>
                                         <br></br>
-                                        <label>Have you suffered personal injuries?</label>
+                                        <label>¿Has sufrido algún daño?</label>
                                         <br></br>
                                         <br></br>
                                         <div className='radio'>
-                                            <input type='radio' name='injury' value='Yes' checked={selectInjuries == 'Yes' ? true : false} onChange={handleInjuries} /><label className='radios'>Yes</label>
+                                            <input type='radio' name='injury' value='Si' checked={selectInjuries == 'Si' ? true : false} onChange={handleInjuries} /><label className='radios'>Si</label>
                                             <input type='radio' name='injury' value='No' checked={selectInjuries == 'No' ? true : false} onChange={handleInjuries} /><label className='radios'>No</label>
                                         </div>
                                         <div>
@@ -97,22 +95,22 @@ export default function Incidences() {
                                                 (selectInjuries == 'Yes') ?
                                                 <div>
                                                     <br></br>
-                                                    <label>Urgency level:</label>
+                                                    <label>Nivel de urgencia para asistencia hospitalaria:</label>
                                                     <br></br>
                                                     <br></br>
                                                     <div className='urgency'>
-                                                        <input className='urg' type='radio' name='urgency' value='1' /><label className='radios'>Low</label>
+                                                        <input className='urg' type='radio' name='urgency' value='Bajo' /><label className='radios'>Bajo</label>
                                                         <br></br>
-                                                        <input className='urg' type='radio' name='urgency' value='2'/><label className='radios'>Medium</label>
+                                                        <input className='urg' type='radio' name='urgency' value='Intermedio'/><label className='radios'>Intermedio</label>
                                                         <br></br>
-                                                        <input className='urg' type='radio' name='urgency' value='3'/><label className='radios'>High</label>
+                                                        <input className='urg' type='radio' name='urgency' value='Prioritario'/><label className='radios'>Prioritario</label>
                                                     </div>
                                                     <br></br>
                                                     <br></br>
                                                 </div> 
                                                 :
                                                 <div className='result'>
-                                                    <p><b>( PD: We are glad you are not injured. )</b></p>
+                                                    <p><b>( PD: Nos algramos de que no haya sufrido ningún daño. )</b></p>
                                                 </div>
                                             }
                                         </div>
@@ -126,28 +124,33 @@ export default function Incidences() {
     
                     <div className='part2'>
                         
-                        <hr className='line'></hr>
-                        <p className='title5'><b>Other Information:</b></p>
-                        <label>Location:</label>
+                        <p className='title5'><b>Otra información:</b></p>
+                        <label>Localización:</label>
                         <br></br><br></br>
                         <div className='col1'>
                             <Map
                                 googleMapURL= {mapURL} 
-                                containerElement= {<div style={{height: '15vw', width: '40vw'}} />}
+                                containerElement= {<div style={{height: '15vw', width: '30vw'}} />}
                                 mapElement={<div style={{height:"15vw"}} />}
-                                loadingElement= {<p>Loading</p>}
+                                loadingElement= {<p>Cargando...</p>}
                             />
                         </div>
                         <br></br>
-                        <label>Payment method:</label>
+                        <label>Método de pago:</label>
                         <br></br>
                         <div className='radio1'>
                             <input type='radio' name='pay' value='paypal' /><label className='radios'>PayPal</label>
                             <br></br>
-                            <input type='radio' name='pay' value='creditcard'/><label className='radios'>Credit Card</label>
+                            <input type='radio' name='pay' value='creditcard'/><label className='radios'>Tarjeta de Crédito</label>
                         </div>
                         <br></br>
-                        <button type="submit" className="buttons-form" id='sub'>Submit</button>
+                    </div>
+                    
+                    <div>
+                        <hr className='line5'></hr>
+
+                        <button type="submit" className="buttons-form" id='sub'>Enviar</button>
+
                     </div>
                 </form>
             </div>

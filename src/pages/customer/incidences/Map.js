@@ -15,5 +15,3 @@ export default withScriptjs(
         Map
     )
 )
-
-//40.4449323572 -3.711167009037225

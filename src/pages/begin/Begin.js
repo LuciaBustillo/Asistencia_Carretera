@@ -8,22 +8,22 @@ export default function Begin() {
     return (
       <div className="begin">
         <h1 className='title'>AsistRoad</h1> 
-        <p className="description">Do you have a problem with your vehicle? Contact us:</p>
+        <p className="description">¿Tienes algún problema en carretera con tu coche? Contacta con nosotros:</p>
 
         <hr className="line"></hr>
 
         <div className="buttons">
-          <button className="buttons-text" onClick={() => navigate('logIn')}>Log In</button>
+          <button className="buttons-text" onClick={() => navigate('/logIn')}>Inicio de Sesión</button>
           <br></br>
           <br></br>
-          <button className="buttons-text" onClick={() => navigate('signUp')}>Sign Up</button>
+          <button className="buttons-text" onClick={() => navigate('/signUp')}>Registro</button>
         </div> 
 
         <hr className="line"></hr>
         
         <div className="techn">
-          <label>Are you technical? </label>
-          <button className="buttons-tech" onClick={() => navigate('technical')}>Log In Technical</button>
+          <label>¿Eres técnico? </label>
+          <button className="buttons-tech" onClick={() => navigate('technical')}>Inicio de Sesión Técnico</button>
         </div>
       </div>
     )

@@ -17,30 +17,30 @@ export default function LogIn() {
     }
 
     return (
-        <div>
+        <div className="content">
             <h1 className='title'>AsistRoad</h1> 
 
             <hr className="line"></hr>
 
             <form className='formLogin'>
                 <label className='title2'>Log In:</label>
-                <br></br>
+                <hr className="line"></hr>
                 <br></br>
 
-                <label>User: </label>
+                <label>Usuario: </label>
                 <br></br>
                 <input type="text"></input>
                 <br></br>
                 <br></br>
-                <label>Password: </label>
+                <label>Contraseña: </label>
                 <br></br>
                 <input type="password"></input>
                 <br></br>
                 <br></br>
-                
+                <hr className="line"></hr>
                 <div>
-                    <Link to="/"><button className="buttons-form" id="links">Back</button></Link>
-                    <button type="submit" className="buttons-form" onClick={goesToIncidencias}>Submit</button>
+                    <Link to="/"><button className="buttons-form" id="links">Volver</button></Link>
+                    <button type="submit" className="buttons-form" onClick={goesToIncidencias}>Enviar</button>
                 </div>
             </form>
         </div>

@@ -128,13 +128,12 @@ export default function SignUp() {
     }
 
     return (
-        <div>
+        <div className="content">
             <h1 className='title'>AsistRoad</h1> 
 
             <hr className="line"></hr>
 
             <form className='formSign'>
-                <p className="content">
                 <label className='title2'>Registro:</label>
 
                 <hr className="line"></hr>
@@ -205,10 +204,9 @@ export default function SignUp() {
                 <hr className="line3"></hr>
 
                 <div>
-                    <Link to="/"><button className="buttons-form" id="link">Back</button></Link>
-                    <button type="submit" className="buttons-form" onClick={goesToLogin}>Submit</button>
+                    <Link to="/"><button className="buttons-form" id="link">Volver</button></Link>
+                    <button type="submit" className="buttons-form" onClick={goesToLogin}>Enviar</button>
                 </div>
-                </p>
             </form>
         </div>
     )

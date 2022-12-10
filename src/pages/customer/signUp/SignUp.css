@@ -1,13 +1,10 @@
-
-
 .formSign {
     color: rgb(0, 0, 0);
     text-align: center;
     border: 0.3vw solid black;
-    padding: 2.5vw;
+    padding: 2vw;
     width: 80vw;
-    height: 40vw;
-    margin-left: 5vw;
+    margin-left: 5.5vw;
     margin-top: 2vw;
     margin-bottom: 2vw;
     font-size: 1vw;
@@ -100,7 +97,6 @@ input {
     border-color: black;
     margin-bottom: -0.5vw;
 }
-
 #link {
     margin-right: 35vw;
 }

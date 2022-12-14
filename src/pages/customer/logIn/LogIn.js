@@ -39,7 +39,7 @@ export default function LogIn() {
                 <br></br>
                 <hr className="line"></hr>
                 <div>
-                    <Link to="/"><button className="buttons-form" id="links">Volver</button></Link>
+                    <Link to="/begin"><button className="buttons-form" id="links">Volver</button></Link>
                     <button type="submit" className="buttons-form" onClick={goesToIncidencias}>Enviar</button>
                 </div>
             </form>

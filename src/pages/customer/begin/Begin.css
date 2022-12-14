@@ -1,0 +1,67 @@
+.begin-content {
+    background-color: gray;
+    padding: 1vw;
+    border: 2px solid black;
+    background-image: linear-gradient(rgba(45, 116, 248, 0.4), rgba(157, 186, 245, 0.3)),url('../../../img/carretera2.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 38vw;
+}
+
+.buttons-text {
+    font-size: 2.2vw;
+    background-color: rgb(235, 232, 232);
+    color: black;
+    padding: 0.5vw;
+    margin: 3vw;
+    box-shadow: black 0.1vw 0.2vw 0.5vw;
+    border: 0.15vw solid rgb(42, 120, 221);
+    width: 21vw;
+}
+.buttons-text:hover {
+    color: rgb(42, 120, 221);
+}
+
+#logIn {
+    margin-left: 20vw;
+}
+.iconLogIn {
+    width: 2vw;
+    height: 2vw;
+    float: left;
+    margin-top: 2.3vw;
+    margin-right: 1vw;
+}
+.iconText {
+}
+
+#signUp {
+    margin-left: 50vw;
+}
+
+.iconSignUp {
+    width: 2vw;
+    height: 2vw;
+    float: left;
+    margin-top: 2.3vw;
+    margin-right: 1vw;
+}
+
+.techn {
+    margin: 4vw;
+    font-size: 17px;
+    text-align: end;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.buttons-tech {
+    font-size: 1.5vw;
+    background-color: rgb(235, 232, 232);
+    color: black;
+    padding: 0.5vw;
+}

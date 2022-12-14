@@ -32,6 +32,7 @@ export default function Incidences() {
         { value: 'Neumáticos', text: 'Neumáticos' },
         { value: 'Pérdida de llaves', text: 'Pérdida de llaves' },
         { value: 'Sistemas de transmisión', text: 'Sistemas de transmisión'},
+        { value: 'Otros', text: 'Otros'},
     ]
 
     function handleSelected({value}) {
@@ -60,6 +61,10 @@ export default function Incidences() {
                     <h2 className='title3'>Incidencias:</h2>
                     <hr className='line'></hr>
                     <div className='part1'>
+                        <label>Matrícula del coche:</label>
+                        <br></br><br></br>
+                        <input type='text' />
+                        <br></br><br></br>
                         <label>Tipo de problema:</label>
                         <br></br>
                         <br></br>
@@ -79,11 +84,21 @@ export default function Incidences() {
                                         <div className='selects'><Select options={optionsVehicle} className='select' onChange={handleProblemVehicle} /></div>
                                         <br></br>
                                         <br></br>
+                                        {
+                                            (selectedProblemVehicle == 'Otros') ?
+                                            <div>
+                                                <label>Observaciones:</label>
+                                                <br></br><br></br>
+                                                <textarea />
+                                            </div>
+                                            :
+                                            <div></div>
+                                        }
                                     </div> 
                                 :
                                     <div>
                                         <br></br>
-                                        <label>¿Has sufrido algún daño?</label>
+                                        <label>¿Necesita una ambulancia?</label>
                                         <br></br>
                                         <br></br>
                                         <div className='radio'>
@@ -92,10 +107,10 @@ export default function Incidences() {
                                         </div>
                                         <div>
                                             {
-                                                (selectInjuries == 'Yes') ?
+                                                (selectInjuries == 'Si') ?
                                                 <div>
                                                     <br></br>
-                                                    <label>Nivel de urgencia para asistencia hospitalaria:</label>
+                                                    <label>Nivel de urgencia para asistencia sanitaria:</label>
                                                     <br></br>
                                                     <br></br>
                                                     <div className='urgency'>
@@ -110,7 +125,7 @@ export default function Incidences() {
                                                 </div> 
                                                 :
                                                 <div className='result'>
-                                                    <p><b>( PD: Nos algramos de que no haya sufrido ningún daño. )</b></p>
+                                                    <p><b>( PD: Nos algramos de que no hayan sufrido ningún daño. )</b></p>
                                                 </div>
                                             }
                                         </div>
@@ -134,14 +149,6 @@ export default function Incidences() {
                                 mapElement={<div style={{height:"15vw"}} />}
                                 loadingElement= {<p>Cargando...</p>}
                             />
-                        </div>
-                        <br></br>
-                        <label>Método de pago:</label>
-                        <br></br>
-                        <div className='radio1'>
-                            <input type='radio' name='pay' value='paypal' /><label className='radios'>PayPal</label>
-                            <br></br>
-                            <input type='radio' name='pay' value='creditcard'/><label className='radios'>Tarjeta de Crédito</label>
                         </div>
                         <br></br>
                     </div>

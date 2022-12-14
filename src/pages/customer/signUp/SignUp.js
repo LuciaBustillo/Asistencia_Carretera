@@ -174,37 +174,16 @@ export default function SignUp() {
                         <input type="text"></input>
                         <br></br>
                         <br></br>
-                        <label>Address: </label>
-                        <br></br>
-                        <input type="text"></input>
-                        <br></br>
-                        <br></br>
                         <label>Phone: </label>
                         <br></br>
                         <input type="number"></input>
                         <br></br>
                 </div>
 
-                <hr className="line2-2"></hr>
-
-                <div className="part3">
-                    <h2><b>Información del vehículo:</b></h2>
-                    <label>Marca:</label>
-                    <label>Modelo:</label>
-
-                    <br></br><br></br>
-                    <label>Color:</label>
-                    <br></br>
-                    <input type='text' />
-                    <br></br><br></br>
-
-                    <label>Nombre del seguro:</label>
-                </div>
-
                 <hr className="line3"></hr>
 
                 <div>
-                    <Link to="/"><button className="buttons-form" id="link">Volver</button></Link>
+                    <Link to="/begin"><button className="buttons-form" id="link">Volver</button></Link>
                     <button type="submit" className="buttons-form" onClick={goesToLogin}>Enviar</button>
                 </div>
             </form>

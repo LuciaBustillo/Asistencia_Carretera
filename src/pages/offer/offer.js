@@ -8,15 +8,20 @@ export default function Offer() {
         <div>
             <Header />
             <div className='offer'>
-                <div>
-                    <p>Ofrecemos servicios fuera de tu póliza.</p>
-                    <p>Con el precio más económico.</p>
-                    <p>Cubrimos:</p>
-                    <ul>
-                        <li>Servicios de grúa.</li>
-                        <li>Servicios de asistencia sanitaria.</li>
-                        <li>Servicios de asistencia policial.</li>
-                    </ul>
+                <div className='offer1'>
+                    <p className='text1'>Ofrecemos servicios fuera de tu póliza.</p>
+                    <p className='text2'>Con el precio más económico.</p>
+                    <p className='text3'>Cubrimos:</p>
+                    <div class="content">
+                        <div class="container">
+                            <p class="container__text"> Asistencia </p>                            
+                            <ul class="container__list">
+                            <li class="container__list__item">grúas</li>
+                            <li class="container__list__item">sanitaria</li>
+                            <li class="container__list__item">policial</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     INFO2

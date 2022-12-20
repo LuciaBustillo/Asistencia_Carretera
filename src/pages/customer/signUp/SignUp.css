@@ -1,102 +1,115 @@
-.formSign {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    border: 0.3vw solid black;
-    padding: 2vw;
-    width: 80vw;
-    margin-left: 5.5vw;
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    font-size: 1vw;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),url('../../../img/carretera2.jpeg');
+.signUp {
+    width: 100%;
+}
+
+.signUp-title {
+    background-image: linear-gradient(rgba(45, 116, 248, 0.4), rgba(157, 186, 245, 0.3)),url('../../../img/signUp/signUp.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    height: 5vw;
+    margin-top: 0vw;
+    text-align: center;
+    padding: 5vw;
+    font-size: 4vw;    
+    color: rgb(255, 255, 255); 
+    text-shadow: black 0.2vw 0.3vw 0.5vw;
+    border: 0.2vw solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+.signUp-content {
+    background-color: rgb(235, 232, 232);
+    margin-top: -4vw;
+    height: 42vw;
+    padding: 1vw;
+    border: 0.2vw solid black;
+    border-bottom: none;
+}
+.formSign {
+    width: 50vw;
+    height: 37vw;
+    margin-left: 22vw;
+    border: 0.2vw solid black;
+    margin-top: 2vw;
+    padding: 1vw;
+    background-color: rgb(92, 143, 216);
+}
+
+.formSign-left {
+    float: left;
+    position: relative;
+}
+#part1 {
+    width: 23vw;
+    margin-left: 2vw;
+    height: 26vw;
+}
+
+.formSign-title {
+    font-size: 1.7vw;
+    width: 19vw;
+    font-weight: bold;
+}
+.formSign-content {
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: bold;
+    margin-left: -5vw;
+}
+
+.line1 {
+    border-color: black;
+    height: 26vw;
+    width: 0.1vw;
+    border-width: 0;
+    color:#000;
+    background-color:#000;
+    margin-left: -1vw;
+}
+
+.right {
+    float: right;
+    position: relative;
+}
+#part2 {
+    margin-top: -28.1vw;
+    margin-right: 2vw;
+    width: 19vw;
+    height: 25vw;
+    padding: 1vw;
+}
+.formSign-right-content {
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: bold;
 }
 
 .line2 {
     border-color: black;
-    height: 30vw;
-    width: 2px;
-    border-width: 0;
-    color:#000;
-    background-color:#000;
-    margin: 1vw; 
+    width: 50vw;
 }
 
 input {
     width: 15vw;
     height: 2vw;
     font-size: 1vw;
+    border-width: 0.15vw;
+    background-color: rgb(235, 232, 232);
 }
 
-.left {
-    float: left;
+.sign-button {
+    font-size: 1.5vw;
+    background-color: rgb(235, 232, 232);
+    color: black;
+    margin-top: 2vw;
+    margin-left: 22vw;
+    padding: 1vw;
+    height: 4vw;
+    width: 6.5vw;
 }
-
-#part1 {
-    width: 25vw;
-    margin-top: 0vw;
-    margin-left: 0vw;
-    position: relative;
-    height: 10vw;
-}
-
-.right {
-    float: right;
-}
-
-#part2 {
-    margin-top: -31.5vw;
-    margin-left: 32.5vw;
-    position: absolute;
-    height: 10vw;
-}
-
-.line2-2 {
-    border-color: black;
-    height: 30vw;
-    width: 2px;
-    border-width: 0;
-    color:#000;
-    background-color:#000;
-    margin-left: 53vw;
-    margin-top: -31vw;
-}
-
-.part3 {
-    margin-left: 55vw;
-    margin-top: -30.5vw;
-    margin-bottom: 12vw;
-    height: 20vw;
-}
-
-.rrs {
-    border: 1px solid black;
-    width: 15vw;
-    margin-left: 5vw;
-    margin-bottom: 1vw;
-}
-.rrs__options {
-    width: 15vw;
-    top: 4.3vw !important;
-    padding: 0vw !important;
-}
-.rrs__button {
-    width: 15vw;
-    height: 2.5vw !important;
-    font-size: 1vw;
-}
-.rrs--has-changed .rrs__label {
-    color: #000 !important;
-    padding: 0vw;
-    white-space: none;
-}
-.line3 {
-    border-color: black;
-    margin-bottom: -0.5vw;
-}
-#link {
-    margin-right: 35vw;
+.sign-button:hover {
+    color: rgb(92, 143, 216);
 }

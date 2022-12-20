@@ -3,6 +3,7 @@ import Header from '../../header/header';
 import Footer from '../../footer/footer';
 import logIn from '../../../img/iconos/begin/cerrar-con-llave.png';
 import signUp from '../../../img/iconos/begin/agregue-el-simbolo-de-la-interfaz-de-personas-de-la-persona-negra-de-cerca-con-el-signo-mas-en-un-circulo-pequeno.png';
+import asist from '../../../img/iconos/begin/auriculares.png';
 import { useNavigate } from "react-router-dom";
 
 export default function Begin() {
@@ -29,11 +30,15 @@ export default function Begin() {
 
           <hr className="line"></hr>
           
-          <div className="techn">
-            <label>¿Eres técnico? </label>
-            <button className="buttons-tech" onClick={() => navigate('technical')}>Inicio de Sesión Técnico</button>
+          <div className="asist">
+            <label className='asist-text'>¿Eres asistente técnico? </label>
+            <button className="buttons-asist" onClick={() => navigate('technical')}>
+              Inicio de Sesión Asistente
+              <img src={asist} className='iconAsist' />
+            </button>
           </div>
         </div>
+        
         <Footer />
       </div>
     )

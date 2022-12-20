@@ -1,24 +1,27 @@
 .begin-content {
-    background-color: gray;
     padding: 1vw;
-    border: 2px solid black;
+    border: 0.2vw solid black;
+    border-top: none;
+    border-bottom: none;
     background-image: linear-gradient(rgba(45, 116, 248, 0.4), rgba(157, 186, 245, 0.3)),url('../../../img/carretera2.jpeg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 38vw;
+    height: 38.35vw;
 }
 
 .buttons-text {
     font-size: 2.2vw;
-    background-color: rgb(235, 232, 232);
+    background-color: rgb(146, 187, 241);
     color: black;
-    padding: 0.5vw;
     margin: 3vw;
+    border: none;
+    border-radius: 10%;
     box-shadow: black 0.1vw 0.2vw 0.5vw;
-    border: 0.15vw solid rgb(42, 120, 221);
     width: 21vw;
+    height: 7vw;
+    text-align: center;
 }
 .buttons-text:hover {
     color: rgb(42, 120, 221);
@@ -31,37 +34,60 @@
     width: 2vw;
     height: 2vw;
     float: left;
-    margin-top: 2.3vw;
-    margin-right: 1vw;
-}
-.iconText {
+    margin-top: 1.4vw;
+    padding: 1vw;
+    margin-right: -1vw;
 }
 
 #signUp {
     margin-left: 50vw;
 }
-
 .iconSignUp {
     width: 2vw;
     height: 2vw;
     float: left;
-    margin-top: 2.3vw;
-    margin-right: 1vw;
+    margin-top: 1.9vw;
+    padding: 0.5vw;
+    margin-left: 3.5vw;
+    margin-right: -4.5vw;
 }
 
-.techn {
-    margin: 4vw;
-    font-size: 17px;
+.line {
+    border-color: black;
+}
+
+.asist {
     text-align: end;
+    height: 5vw;
+    margin: 2vw;
 }
 
-label {
+.asist-text {
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
+    color: white;
+    text-shadow: black 0.1vw 0.2vw 0.5vw;
 }
-.buttons-tech {
+.buttons-asist {
     font-size: 1.5vw;
-    background-color: rgb(235, 232, 232);
+    background-color: rgb(146, 187, 241);;
     color: black;
+    padding: 1.5vw;
+    border: none;
+    border-radius: 10%;
+    box-shadow: black 0.1vw 0.2vw 0.5vw;
+    text-align: center;
+    height: 4.5vw;
+}
+.buttons-asist:hover {
+    color: rgb(42, 120, 221);
+}
+.iconAsist {
+    width: 2vw;
+    height: 2vw;
+    float: left;
+    padding: 0.5vw;
+    margin-top: -0.7vw;
+    margin-right: 0.5vw;
     padding: 0.5vw;
 }

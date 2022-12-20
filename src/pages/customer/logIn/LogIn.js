@@ -1,48 +1,55 @@
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import './LogIn.css';
+import Header from '../../header/header';
+import Footer from '../../footer/footer';
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
-export default function LogIn() {
+export default function LogIn(props) {
+
+    const[user, setUser] = useState('')
+
     const navigate = useNavigate();
 
     function goesToIncidencias() {
-        //Enviar datos al login y verificar
-        //fectch (/logIn)
         navigate('/incidences')
-        doLogin();
-    }
-
-    function doLogin() {
-        //Llamada de verdad
     }
 
     return (
-        <div className="content">
-            <h1 className='title'>AsistRoad</h1> 
+        <div>
+            <Header />
 
-            <hr className="line"></hr>
+            <div className='logIn'>
+                <p className='logIn-title'>Inicio de sesión:</p>
+                <div className='logIn-content'>
+                    <form className='formLogin'>
+                {
+                    props.users && props.users.map(user => {
+                        return (
+                            <div key={user.codigo}>
+                                <p>HOLA</p>
+                            </div>
+                        )
+                    })
+                }
+                        <label>Usuario: </label>
+                        <br></br>
+                        <input type="text"></input>
+                        <br></br>
+                        <br></br>
+                        <label>Contraseña: </label>
+                        <br></br>
+                        <input type="password"></input>
 
-            <form className='formLogin'>
-                <label className='title2'>Log In:</label>
-                <hr className="line"></hr>
-                <br></br>
+                        <hr className="line3"></hr>
 
-                <label>Usuario: </label>
-                <br></br>
-                <input type="text"></input>
-                <br></br>
-                <br></br>
-                <label>Contraseña: </label>
-                <br></br>
-                <input type="password"></input>
-                <br></br>
-                <br></br>
-                <hr className="line"></hr>
-                <div>
-                    <Link to="/begin"><button className="buttons-form" id="links">Volver</button></Link>
-                    <button type="submit" className="buttons-form" onClick={goesToIncidencias}>Enviar</button>
+                        <button type="submit" className="logIn-button" onClick={goesToIncidencias}>Enviar</button>
+                    </form>
                 </div>
-            </form>
+            </div>
+
+            <Footer />
         </div>
     )
 }
+
+//navigate('/incidences')

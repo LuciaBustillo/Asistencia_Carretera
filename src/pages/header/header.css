@@ -1,0 +1,91 @@
+.header {
+    height: 3vw;
+    border-bottom: 0.2vw solid black;
+    background-color: rgb(235, 232, 232);
+    border: 0.2vw solid black;
+}
+.header-button {
+    padding-left: 3vw;
+    background-color: rgb(235, 232, 232);
+    float: right;
+    height: 3vw;
+    width: 15%;
+    font-size: 1vw;
+    border: none;
+    border-right: 1px solid black;
+}
+.header-button:hover {
+    background-color: rgb(92, 143, 216);
+}
+
+.header-button-home {
+    padding-left: 3vw;
+    background-color: rgb(235, 232, 232);
+    float: right;
+    height: 3vw;
+    width: 10%;
+    font-size: 1vw;
+    border: none;
+    border-right: 1px solid black;
+}
+.header-button-home:hover {
+    background-color: rgb(92, 143, 216);
+}
+
+.header-home{
+    float: left;
+}
+.iconHome {
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-top: 0.7vw;
+    margin-left: 0.3vw;
+    float: left;
+}
+
+
+#us {
+    border-right: none;
+}
+.header-us {
+    float: left;
+}
+.iconUs {
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-top: 0.7vw;
+    margin-left: 0.3vw;
+    float: left;
+}
+
+
+.header-custom {
+    float: left;
+}
+.iconCustomer {
+    width: 1.3vw;
+    height: 1.3vw;
+    margin-top: 0.7vw;
+    margin-left: 0.3vw;
+    float: left;
+}
+
+
+.header-car {
+    float: left;
+}
+.iconCar {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-top: 0.7vw;
+    margin-left: 0.5vw;
+    float: left;
+}
+
+.header-logo {
+    float: left;
+    height: 3vw;
+    margin-top: 0vw;
+    padding: 0.5vw;
+    font-size: 1.5vw;
+}

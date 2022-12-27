@@ -1,0 +1,12 @@
+
+.info-content {
+    height: 40vw;
+    font-size: 1vw;
+    border: 0.2vw solid black;
+    border-bottom: none;
+    border-top: none;
+}
+
+.info-content-list {
+    padding: 2vw;
+}

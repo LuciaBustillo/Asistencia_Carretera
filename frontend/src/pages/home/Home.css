@@ -1,0 +1,127 @@
+.home-infos {
+    height: 56.5vw;
+    border: 0.2vw solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+.info1 {
+    background-image: linear-gradient(rgba(45, 116, 248, 0.4), rgba(157, 186, 245, 0.3)),url('../../img/carretera2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 7vw;
+    height: 15vw;
+    font-size: 2vw;
+    color: rgb(255, 255, 255); 
+    text-shadow: black 0.1vw 0.2vw 0.5vw;
+    text-align: center;
+    font-weight: bold;
+}
+.info1-text {
+    border: 0.15vw solid rgb(42, 120, 221);
+    height: 2vw;
+    width: 20vw;
+    padding: 1vw;
+    background-color: rgb(235, 232, 232);
+    margin-top: 10vw;
+    margin-left: 30vw;
+    font-size: 1.5vw;
+    color: black;
+    text-shadow: none;
+}
+.info1-button {
+    color: black;
+    border: none;
+    font-size: 1.3vw;
+    background-color: rgb(235, 232, 232);
+}
+.info1-button:hover {
+    color: rgb(42, 120, 221);
+}
+
+
+.info2 {
+    background-color: rgb(92, 143, 216);
+    height: 45%;
+    padding: 1vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.8vw;
+    border-top: 0.2vw solid black;
+}
+.info2-text {
+    margin-bottom: 4vw;
+}
+.info2-1 {
+    float: left;
+    padding: 2vw;
+    border: 0.2vw solid black;
+    height: 10vw;
+    border-radius: 50%;
+    margin-left: 8vw;
+    margin-right: 4vw;
+    background-color: rgb(235, 232, 232);
+    transition: transform .2s;
+}
+.info2-1:hover {
+    transform: scale(1.2);
+}
+
+.icon1 {
+    height: 3.5vw;
+    width: 3.5vw;
+}
+
+.info2-2 {
+    float: left;
+    padding: 2vw;
+    border: 0.2vw solid black;
+    height: 10vw;
+    border-radius: 50%;
+    margin-right: 4vw;
+    background-color: rgb(235, 232, 232);
+    transition: transform .2s;
+}
+.info2-2:hover {
+    transform: scale(1.2);
+}
+.icon2 {
+    height: 3.5vw;
+    width: 3.5vw;
+}
+
+.info2-3 {
+    float: left;
+    padding: 2vw;
+    border: 0.2vw solid black;
+    height: 10vw;
+    border-radius: 50%;
+    margin-right: 4vw;
+    background-color: rgb(235, 232, 232);
+    transition: transform .2s;
+}
+.info2-3:hover {
+    transform: scale(1.2);
+}
+.icon3 {
+    height: 3.5vw;
+    width: 3.5vw;
+}
+
+.info2-4 {
+    float: left;
+    padding: 2vw;
+    border: 0.2vw solid black;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: rgb(235, 232, 232);
+    transition: transform .2s;
+}
+.info2-4:hover {
+    transform: scale(1.2);
+}
+.icon4 {
+    height: 3.5vw;
+    width: 3.5vw;
+}

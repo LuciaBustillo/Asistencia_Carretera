@@ -1,0 +1,86 @@
+.header-customer {
+    float: initial;
+    height: 3vw;
+    border-bottom: 0.2vw solid black;
+    background-color: rgb(235, 232, 232);
+    border: 0.2vw solid black;
+}
+
+.header-custom-button {
+    background-color: rgb(235, 232, 232);
+    float: right;
+    height: 3vw;
+    width: 17%;
+    font-size: 1vw;
+    padding-left: 1.7vw;
+    border: none;
+    border-right: 0.1vw solid black;
+}
+.header-custom-button:hover {
+    background-color: rgb(92, 143, 216);
+}
+
+.header-custom-button-end {
+    padding-left: 2vw;
+    background-color: rgb(235, 232, 232);
+    float: right;
+    height: 3vw;
+    width: 12%;
+    font-size: 1vw;
+    border: none;
+}
+.header-custom-button-end:hover {
+    background-color: rgb(92, 143, 216);
+}
+
+.header-custom-button-home {
+    background-color: rgb(235, 232, 232);
+    float: right;
+    height: 3vw;
+    width: 10%;
+    font-size: 1vw;
+    padding-left: 3vw;
+    border: none;
+    border-right: 0.1vw solid black;
+}
+.header-custom-button-home:hover {
+    background-color: rgb(92, 143, 216);
+}
+
+.header-custom-button-exit {
+    float: left;
+}
+.iconExit {
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-top: 0.8vw;
+    margin-left: 0.7vw;
+    float: left;
+}
+
+.header-custom-button-info {
+    float: left;
+    margin-left: 0.5vw;
+}
+.iconInfo {
+    width: 1.4vw;
+    height: 1.4vw;
+    float: left;
+    margin-top: 0.7vw;
+    margin-left: 0.7vw;
+}
+
+.header-custom-button-form {
+    float: left;
+}
+.iconIncidence {
+    width: 1.8vw;
+    height: 1.8vw;
+    margin-top: 0.4vw;
+    margin-left: 0.5vw;
+    float: left;
+}
+
+.header-custom-button-homes {
+    float: left;
+}

@@ -1,0 +1,55 @@
+.logIn-title {
+    background-image: linear-gradient(rgba(238, 238, 240, 0.4), rgba(150, 170, 209, 0.3)),url('../../../img/logIn/logIn.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 5vw;
+    margin-top: 0vw;
+    text-align: center;
+    padding: 5vw;
+    font-size: 4vw;    
+    color: rgb(255, 255, 255); 
+    text-shadow: black 0.2vw 0.3vw 0.5vw;
+    border: 0.2vw solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+.logIn-content {
+    background-color: rgb(235, 232, 232);
+    margin-top: -4vw;
+    height: 30vw;
+    padding: 1vw;
+    border: 0.2vw solid black;
+    border-bottom: none;
+}
+
+.formLogin {
+    width: 20vw;
+    height: 17.5vw;
+    margin-left: 35vw;
+    border: 0.2vw solid black;
+    margin-top: 3vw;
+    padding: 2vw;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    background-color: rgb(92, 143, 216);
+}
+
+.line3{
+    border-color: black;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.logIn-button {
+    font-size: 1vw;
+    background-color: rgb(235, 232, 232);
+    color: black;
+    padding: 1vw;
+}
+.logIn-button:hover {
+    color: rgb(92, 143, 216);
+}

@@ -1,0 +1,13 @@
+
+.info-custom {
+    height: 40.3vw;
+    border: 0.2vw solid black;
+    border-top: none;
+    border-bottom: none;
+}
+.info-custom-one {
+    padding: 2vw;
+    font-size: 1.5vw;
+    height: 40vw;
+    
+}

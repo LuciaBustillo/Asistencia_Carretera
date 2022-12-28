@@ -37,7 +37,7 @@ def login():
                 'telefono': columna[6]
             }
             if body['password'] == usuario['contraseña']:
-                return jsonify({"isValidUser": "true"})
+                return jsonify({"isValidUser": "true", 'usuario': usuario})
             else:
                 return jsonify({"isValidUser": "false"})
         else:
@@ -98,88 +98,70 @@ def register_save():
     except Exception as ex:
         return  str(ex)
 
-
 @app.route("/incidences", methods=['POST'])
 def incidence_save():
-    try:
+    try: 
         body = request.json
+        print(body)
         cursor = conexion.connection.cursor()
-        sql = 'INSERT INTO incidencias (matricula, tipo_problema, problema_vehiculo, observaciones, daños, urgencia, localizacion, atendido) VALUES (%s, %s, %s, %s, %s, %s, %s)'
-        values = ( body['registration'], body['problem'], body['problemVehicle'], body['observations'], body['injuries'], body['urgency'], body['localization'], body['localization'], body['attended'])
+        sql = 'INSERT INTO incidencias (matricula, tipo_problema, problema_vehiculo, observaciones, daños, urgencia, localizacionLat, localizacionLng, estado, idUsuario) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+        print(body['localization']['lat'])
+        values = ( body['registration'], body['problem'], body['problemVehicle'], body['observations'], body['injuries'], body['urgency'], float(body['localization']['lat']), float(body['localization']['lng']), body['state'], body['idUser'])
         data = cursor.execute(sql, values)
         conexion.connection.commit()
         
         return jsonify({"isValidInserted": data})
+    
+    except Exception as err: 
+        return str(err)
+
+@app.route("/incidences/<idUsuario>", methods=['GET'])
+def incidences_user(idUsuario):
+    try: 
+        print(idUsuario)
+        cursor = conexion.connection.cursor()
+        sql = "SELECT * FROM incidencias WHERE idUsuario like('{0}')".format(idUsuario)
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        print(datos)
+        incidencias = []
+        if (datos != None) :
+            for columna in datos:
+                incidencia = {
+                    'codigo': columna[0], 
+                    'matricula': columna[1], 
+                    'tipo_problema': columna[2], 
+                    'problema_vehiculo': columna[3], 
+                    'observaciones': columna[4],
+                    'daños': columna[5],
+                    'urgencia': columna[6],
+                    'localizacionLat': columna[7],
+                    'localizacionLng': columna[8],
+                    'estado': columna[9]
+                }
+                incidencias.append(incidencia)
+            return jsonify({"incidencias": incidencias})
+        else :
+            return jsonify({"mensaje": "Usuario sin incidencias"})
         
     except Exception as ex:
-        return  str(ex)
-
-
-@app.route("/incidencesss", methods=['GET'])
-def incidences_list():
-    try:
-        cursor = conexion.connection.cursor()
-        sql = "SELECT * FROM incidencias"
-        cursor.execute(sql)
-        datos = cursor.fetchall()
-        incidencias = []
-        for columna in datos:
-            incidencia = {
-                'codigo': columna[0], 
-                'matricula': columna[1], 
-                'tipo_problema': columna[2], 
-                'problema_vehiculo': columna[3], 
-                'observaciones': columna[4],
-                'daños': columna[5],
-                'urgencia': columna[6],
-                'localizacion': columna[7],
-                'atendido': columna[8]
-            }
-            incidencias.append(incidencia)
-        return jsonify({"incidencias": incidencias})
-    except Exception as ex:
         return "Error en server"
 
-@app.route("/incidencessss/<matricula>", methods=['GET'])
-def incidences_one(matricula):
+@app.route("/incidences/delete/<idIncidencia>", methods=['POST'])
+def incidences_delete(idIncidencia):
     try: 
-        print(matricula)
+        print(idIncidencia)
         cursor = conexion.connection.cursor()
-        sql = "SELECT * FROM incidencias WHERE matricula like('{0}')".format(matricula)
+        sql = "DELETE * FROM incidencias WHERE codigo like('{0}')".format(idIncidencia)
         cursor.execute(sql)
-        datos = cursor.fetchone()
-        print(datos)
-        if(datos != None):
-            incidencia = {"codigo": datos[0], 'matricula': datos[1], 'tipo_problema': datos[2]}
-            return jsonify({"incidencia": incidencia})
-        else:
-            return jsonify({"mensaje": "Matricula sin incidencias"})
+        conexion.connection.commit()
+        cursor.close()
+        print(cursor.rowcount, "record(s) deleted")
     except Exception as ex:
         return "Error en server"
 
-@app.route("/usuarios", methods=['GET'])
-def usuarios_list():
-    try:
-        cursor = conexion.connection.cursor()
-        sql = "SELECT * FROM usuarios"
-        cursor.execute(sql)
-        datos = cursor.fetchall()
-        usuarios = []
-        for columna in datos:
-            usuario = {
-                'codigo': columna[0], 
-                'usuario': columna[1], 
-                'contraseña': columna[2], 
-                'nombre': columna[3], 
-                'apellido': columna[4],
-                'dni': columna[5],
-                'telefono': columna[6]
-            }
-            usuarios.append(usuario)
-        return jsonify({"usuarios": usuarios})
-    except Exception as ex:
-        return "Error en server"
-
+#@app.route("/incidences/edit/<idIncidencia>", methods=['PUT'])
+#def incidences_edit(idIncidencia):
 
 if(__name__ == '__main__'):
     app.run(debug=True, port=5000)

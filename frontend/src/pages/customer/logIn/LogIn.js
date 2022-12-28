@@ -7,15 +7,16 @@ import { useContext } from 'react';
 import AsistenciaContext from '../../../context/AsistenciaContext';
 
 export default function LogIn() {
-    const {setUser} = useContext(AsistenciaContext);
+    const {setUser, setIdUser} = useContext(AsistenciaContext);
 
     const [userWrite, setUserWrite] = useState('');
     const [passWrite, setPassWrite] = useState('');
 
     const navigate = useNavigate();
 
-    function goesToHomeCustomer(userWrite) {
+    function goesToHomeCustomer(userWrite, usuario) {
         setUser(userWrite);
+        setIdUser(usuario.codigo)
         navigate('/logIn/homeCustomer')
     }
 
@@ -40,7 +41,7 @@ export default function LogIn() {
         .then(response => 
             {
                 response.isValidUser == 'true' ?
-                    goesToHomeCustomer(userWrite)
+                    goesToHomeCustomer(userWrite, response.usuario)
                 :
                     alert('Introduce un usuario o contraseña válidos.')
             })

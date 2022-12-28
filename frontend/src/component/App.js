@@ -14,12 +14,15 @@ import AsistenciaContext from "../context/AsistenciaContext";
 function App() {
   
   const [user, setUser] = useState("");
+  const [idUser, setIdUser] = useState(0);
 
   return (
     <AsistenciaContext.Provider
       value={{
         user,
-        setUser
+        setUser,
+        idUser,
+        setIdUser
       }}
     >
       <Routes>

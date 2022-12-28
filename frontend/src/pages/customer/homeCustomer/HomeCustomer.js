@@ -6,6 +6,7 @@ import AsistenciaContext from '../../../context/AsistenciaContext';
 
 export default function HomeCustomer() {
     const {user} = useContext(AsistenciaContext);
+    
     return (
         <div>
             <HeaderCustomer />

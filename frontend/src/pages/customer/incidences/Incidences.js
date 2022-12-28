@@ -7,18 +7,22 @@ import Map from './Map';
 import Credentials from './Credentials';
 import 'react-responsive-select/dist/react-responsive-select.css';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import AsistenciaContext from '../../../context/AsistenciaContext';
 
 export default function Incidences() {
     const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${Credentials.mapsKey}`;
 
-    const [ registration, setRegistration ] = useState('')
-    const [ selectedProblem, setSelectedProblem ] = useState('');
-    const [ selectedProblemVehicle, setSelectedProblemVehicle ] = useState('');
+    const [ registration, setRegistration ] = useState(null)
+    const [ selectedProblem, setSelectedProblem ] = useState(null);
+    const [ selectedProblemVehicle, setSelectedProblemVehicle ] = useState(null);
     const [ selectInjuries, setSelectInjuries ] = useState('No');
-    const [ observations, setObservations ] = useState('')
-    const [ urgency, setUrgency ] = useState('')
-    const [ localization, setLocalization ] = useState('')
-    const [ attended, setAttended ] = useState(0)
+    const [ observations, setObservations ] = useState(null)
+    const [ urgency, setUrgency ] = useState(null)
+    const [ localization, setLocalization ] = useState(null)
+    const [ state, setState ] = useState('pendiente aprobacion')
+
+    const {idUser} = useContext(AsistenciaContext);
 
     const navigate = useNavigate();
 
@@ -42,14 +46,15 @@ export default function Incidences() {
         { value: 'Sistemas de transmisión', text: 'Sistemas de transmisión'},
         { value: 'Otros', text: 'Otros'},
     ]
+
     function cleanStates(cleanInjuries = false){
-        setSelectedProblemVehicle("");
-       
-        setObservations('');
-        setUrgency('')
-        cleanInjuries ? setSelectInjuries('') : <></>;
+        setSelectedProblemVehicle(null);
+        setObservations(null);
+        setUrgency(null)
+        cleanInjuries ? setSelectInjuries(null) : <></>;
         
     }
+    
     function handleSelected({value}) {
         setSelectedProblem(value)
         cleanStates(true)
@@ -79,6 +84,7 @@ export default function Incidences() {
 
     const onHandleIncidence = e => {
         e.preventDefault()
+        console.log(localization)
         
         const newIncidenceInsert = {
             registration: registration,
@@ -88,25 +94,31 @@ export default function Incidences() {
             observations: observations,
             urgency: urgency,
             localization: localization,
-            attended: attended
+            state: state,
+            idUser: idUser
         }
+        console.log(registration, selectedProblem, localization, state)
 
-        fetch('http://127.0.0.1:5000/incidences', 
-        {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newIncidenceInsert)
-        })
-        .then(response => response.json())
-        .then(
-                goesToHome()
-            )
-        .catch(error => console.log(error))
+        if (!registration || !selectedProblem || !localization || !state){
+            alert( "todos los campos son obligatorios");
+        }else{
+            fetch('http://127.0.0.1:5000/incidences', 
+            {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newIncidenceInsert)
+            })
+            .then(response => response.json())
+            .then(
+                    goesToHome()
+                )
+            .catch(error => console.log(error))
+        }
     }
 
-    console.log(registration, selectedProblem, selectedProblemVehicle, selectInjuries, observations, urgency)
+    
 
         return (
             <div>
@@ -131,7 +143,7 @@ export default function Incidences() {
                                 </div>
                                 <div>
                                     {
-                                        (selectedProblem == '') ?
+                                        (selectedProblem == null) ?
                                             <></> 
                                             :
                                             (selectedProblem == 'Problema con el vehículo') ?
@@ -203,7 +215,8 @@ export default function Incidences() {
 
                                 <label>Localización:</label>
                                 <div className='map'>
-                                    <Map
+                                    <Map 
+                                        setLocalization = {setLocalization}
                                         googleMapURL= {mapURL} 
                                         containerElement= {<div style={{height: '20vw', width: '20vw'}} />}
                                         mapElement={<div style={{height:"20vw"}} />}

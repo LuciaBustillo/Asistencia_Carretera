@@ -32,11 +32,11 @@ export default function Home() {
                         <img src={IconBest} className='icon2' />
                     </div>
                     <div className='info2-3'>
-                        <p>Cobertura fuera de <br></br> tu póliza</p>
+                        <p className='info2-3-text'>Cobertura fuera <br></br> de tu póliza</p>
                         <img src={IconPolice} className='icon3' />
                     </div>
                     <div className='info2-4'>
-                        <p>La cobertura más <br></br> económica</p>
+                        <p className='info2-4-text'>La cobertura <br></br>más económica </p>
                         <img src={IconCheap} className='icon4' />
                     </div>
                 </div>

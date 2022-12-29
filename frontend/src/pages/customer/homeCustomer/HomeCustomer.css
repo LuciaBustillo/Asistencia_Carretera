@@ -4,10 +4,22 @@
     border: 0.2vw solid black;
     border-top: none;
     border-bottom: none;
+    background-image: linear-gradient(rgba(17, 95, 239, 0.4), rgba(87, 138, 242, 0.3)),url('../../../img/carretera5.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .info-custom-one {
     padding: 2vw;
-    font-size: 1.5vw;
-    height: 40vw;
-    
+    font-size: 2vw;
+    height: 20vw;
+    padding-top: 7vw;
+    color: rgb(255, 255, 255); 
+    text-shadow: black 0.1vw 0.2vw 0.5vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+.info-custom-one-phone {
+    font-size: 2.5vw;
 }

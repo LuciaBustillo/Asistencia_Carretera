@@ -21,6 +21,7 @@ const Map = (props)=>{
             defaultZoom={10} 
             defaultCenter={{lat: 40.4449323572, lng: -3.711167009037225}} 
             onClick={markerSet}
+            options={{streetViewControl: false}}
             >
                 <Marker position={{ lat: parseFloat(marker?.lat), lng: parseFloat(marker?.lng)}} />
             </GoogleMap>

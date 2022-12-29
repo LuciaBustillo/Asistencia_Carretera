@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
 from flask_cors import CORS
+import re
 app = Flask(__name__)
 cors = CORS()
 
@@ -10,10 +11,6 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'asistroad'
 cors.init_app(app)
 conexion = MySQL(app)
-
-@app.route("/")
-def saludo():
-    return "Hola Lucia"
 
 #VALIDATION LOGIN:
     
@@ -61,7 +58,7 @@ def is_user_exist(body):
     else: 
         return False
 
-def register_pass_validations(body):
+def register_validations(body):
     bOk = True
     errorDesc = ""
     if body['password'] != body['confirmPassword'] :
@@ -82,7 +79,7 @@ def register_pass_validations(body):
 def register_save():
     try:
         body = request.json
-        isValidRegister, errorDesc = register_pass_validations(body)
+        isValidRegister, errorDesc = register_validations(body)
         
         if isValidRegister:
             cursor = conexion.connection.cursor()
@@ -97,20 +94,39 @@ def register_save():
         
     except Exception as ex:
         return  str(ex)
+    
+#VALIDATIONS INCIDENCES:
+    
+def incidences_validations(body):
+    bOk = True
+    errorDescr = ""
+    search = re.search("^([0-9]{4}[A-Z]{3})$", body['registration'])
+    print(search)
+    if search==None:
+        print("Entramos por none")
+        bOk = False
+        errorDescr = "La matricula debe tener 4 números y 3 letras"
+    if len(body['registration']) != 7:
+        bOk = False
+        errorDescr = "La matricula debe tener los 7 carácteres"
+    return bOk, errorDescr
 
 @app.route("/incidences", methods=['POST'])
 def incidence_save():
     try: 
         body = request.json
-        print(body)
-        cursor = conexion.connection.cursor()
-        sql = 'INSERT INTO incidencias (matricula, tipo_problema, problema_vehiculo, observaciones, daños, urgencia, localizacionLat, localizacionLng, estado, idUsuario) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-        print(body['localization']['lat'])
-        values = ( body['registration'], body['problem'], body['problemVehicle'], body['observations'], body['injuries'], body['urgency'], float(body['localization']['lat']), float(body['localization']['lng']), body['state'], body['idUser'])
-        data = cursor.execute(sql, values)
-        conexion.connection.commit()
+        isValidIncidence, errorDesc = incidences_validations(body)
         
-        return jsonify({"isValidInserted": data})
+        if isValidIncidence:
+            cursor = conexion.connection.cursor()
+            sql = 'INSERT INTO incidencias (matricula, tipo_problema, problema_vehiculo, observaciones, daños, urgencia, localizacionLat, localizacionLng, estado, idUsuario) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+            values = ( body['registration'], body['problem'], body['problemVehicle'], body['observations'], body['injuries'], body['urgency'], float(body['localization']['lat']), float(body['localization']['lng']), body['state'], body['idUser'])
+            data = cursor.execute(sql, values)
+            conexion.connection.commit()
+        
+            return jsonify({"isValidInserted": data})
+        else:
+            return jsonify({"isValidInserted": False, "errorDescription": errorDesc})
     
     except Exception as err: 
         return str(err)
@@ -147,21 +163,40 @@ def incidences_user(idUsuario):
     except Exception as ex:
         return "Error en server"
 
-@app.route("/incidences/delete/<idIncidencia>", methods=['POST'])
+@app.route("/incidences/delete/<idIncidencia>", methods=['DELETE'])
 def incidences_delete(idIncidencia):
     try: 
         print(idIncidencia)
         cursor = conexion.connection.cursor()
-        sql = "DELETE * FROM incidencias WHERE codigo like('{0}')".format(idIncidencia)
+        sql = "DELETE FROM incidencias WHERE codigo = '{0}'".format(idIncidencia)
         cursor.execute(sql)
         conexion.connection.commit()
-        cursor.close()
+        #cursor.close()
         print(cursor.rowcount, "record(s) deleted")
+        if cursor.rowcount > 0:
+            return jsonify({"isDeleted": True})
+        else :
+            return jsonify({"isDeleted":False, "errorDescription": "Not found"})
     except Exception as ex:
-        return "Error en server"
+        return ex
 
-#@app.route("/incidences/edit/<idIncidencia>", methods=['PUT'])
-#def incidences_edit(idIncidencia):
+@app.route("/incidences/edit/<idIncidencia>", methods=['PUT'])
+def incidences_edit(idIncidencia):
+    try: 
+        body = request.json
+        print(idIncidencia)
+        print(body)
+        cursor = conexion.connection.cursor()
+        sql = "UPDATE incidencias SET observaciones = %s, estado = %s WHERE codigo = %s"
+        values = (body['observations'], body['state'], idIncidencia)
+        data = cursor.execute(sql, values)
+        conexion.connection.commit()
+    
+        return jsonify({"isValidUpdated": data})
+    
+    except Exception as err: 
+        return str(err)
+    
 
 if(__name__ == '__main__'):
     app.run(debug=True, port=5000)

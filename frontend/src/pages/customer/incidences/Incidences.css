@@ -1,34 +1,29 @@
 .incidences-title {
-    background-image: linear-gradient(rgba(238, 238, 240, 0.4), rgba(150, 170, 209, 0.3)),url('../../../img/incidences/incidences.webp');
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 5vw;
-    margin-top: 0vw;
     text-align: center;
-    padding: 5vw;
-    font-size: 4vw;    
+    margin-top: 2vw;
+    font-size: 3vw;    
     color: rgb(255, 255, 255); 
     text-shadow: black 0.2vw 0.3vw 0.5vw;
-    border: 0.2vw solid black;
-    border-top: none;
-    border-bottom: none;
 }
 
 .incidences-content {
     background-color: rgb(235, 232, 232);
-    margin-top: -4vw;
-    height: 55vw;
+    height: 65vw;
     padding: 1vw;
     border: 0.2vw solid black;
+    border-top: none;
     border-bottom: none;
+    background-image: linear-gradient(rgba(120, 120, 249, 0.4), rgba(131, 166, 236, 0.3)),url('../../../img/incidences/incidences.webp');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .formIncidences {
     width: 55vw;
     height: 51vw;
-    margin-left: 20vw;
+    margin-left: 21.5vw;
     border: 0.2vw solid black;
     margin-top: 2vw;
     text-align: center;

@@ -84,7 +84,6 @@ export default function Incidences() {
 
     const onHandleIncidence = e => {
         e.preventDefault()
-        console.log(localization)
         
         const newIncidenceInsert = {
             registration: registration,
@@ -97,7 +96,6 @@ export default function Incidences() {
             state: state,
             idUser: idUser
         }
-        console.log(registration, selectedProblem, localization, state)
 
         if (!registration || !selectedProblem || !localization || !state){
             alert( "todos los campos son obligatorios");
@@ -111,23 +109,27 @@ export default function Incidences() {
                 body: JSON.stringify(newIncidenceInsert)
             })
             .then(response => response.json())
-            .then(
-                    goesToHome()
+            .then((response) =>
+                {
+                    if (response.isValidInserted){
+                        goesToHome()
+                    }else {
+                        alert(response.errorDescription)
+                    }
+                }
                 )
             .catch(error => console.log(error))
         }
     }
-
-    
+   
 
         return (
             <div>
                 <HeaderCustomer />
 
                 <div>
-                    <p className='incidences-title'>Incidencias:</p>
-
                     <div className='incidences-content'>
+                        <p className='incidences-title'>Incidencias:</p>
                         <form className='formIncidences' onSubmit={(e)=>onHandleIncidence(e)}>
                             <div className='part1'>
                                 <p className="formIncidences-title">Información del usuario:</p>
@@ -155,7 +157,7 @@ export default function Incidences() {
                                                     </div>
                                                     <br></br>
                                                     {
-                                                        (selectedProblemVehicle == 'Otros') ?
+                                                        (selectedProblemVehicle != '') ?
                                                             <div>
                                                                 <label>Observaciones:</label>
                                                                 <br></br>
